@@ -1,10 +1,11 @@
 <h1>User info</h1>
 <% books.each do |book| %>
-  <% if user.profile_image.attached? %>
-    <%= image_tag user.profile_image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
+  <div>
+    <%= image_tag book.get_image %>
+    <p><%= image_tag 'sample-author1.jpg' %></p>
+    <p>name<%= book.user.name %></p>
+    <p>introduction<%= book.introduction %></p>
+  </div>
 <% end %>
 
 <h1>New book</h1>
