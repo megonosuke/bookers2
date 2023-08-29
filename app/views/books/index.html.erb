@@ -1,18 +1,2 @@
 <%= render 'list', books: @books %>
 
-<h1>投稿一覧</h1>
-<% @books.each do |book| %>
-
-  <p>Title</p>
-  <span>
-    <%=link_to book.title, book_path(:id) %>
-  </span>
-  
-  
-  <p>画像</p>
-  <% if user.image.attached? %>
-    <%= image_tag user.image, size: "200x200" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "200x200" %>
-  <% end %>
-<% end %>
