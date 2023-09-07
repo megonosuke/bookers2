@@ -17,7 +17,7 @@
       <a href="/">Bookers</a>
 
       <li>
-        <%= link_to user_path(:id) do %>
+        <%= link_to user_path(current_user) do %>
           <i class="fa-solid fa-house"></i>Home
         <% end %>
       </li>

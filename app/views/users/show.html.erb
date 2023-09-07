@@ -1,0 +1,17 @@
+
+
+
+<h1>Books</h1>
+<% @books.each do |book| %>
+  <div>
+    <%= link_to user_path(book) do %>
+      <%= image_tag 'sample-author1.jpg' %>
+    <% end %>
+    <p>Title：
+    <%= link_to book_path(book) do %>
+      <%= book.title %>
+    <% end %>
+    </p>
+    <p>Opinion:<%= book.body %></p>
+  </div>
+<% end %>
