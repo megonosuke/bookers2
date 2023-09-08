@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <% if @user.errors.any? %>
   <%= @user.errors.count %>errors prohibited this obj from being saved:
   <ul>
