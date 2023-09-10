@@ -1,17 +1,29 @@
-<h1>Users</h1>
-<table class="table">
-  <thead>
-    <th>image</th>
-    <th>name</th>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4" style="background-color: orenge;">
+      <h2>サイドバー</h2>
+    </div>
 
-  <tbody>
-    <% @users.each do |user| %>
-    <tr>
-      <td><!-- user.profile.imageを挿入したいがエラーが出るため一旦置いておく--></td>
-      <td><%= user.name %></td>
-      <td><%= link_to "Show", user_path(user.id) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
+    <div class="col-lg-8">
+      <h1>Users</h1>
+      <table class="table">
+        <thead>
+          <th>image</th>
+          <th>name</th>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><!-- user.profile.imageを挿入したいがエラーが出るため一旦置いておく--></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
+    @user = User.new
   end
 
   def create
@@ -9,8 +10,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "You have created book successfully."
-      redirect_to books_path
-      # books.showのリンクに変更する（現状、リンクがわからない）
+      redirect_to book_path(@book)
     else
       render :index
     end
@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+
   end
 
   def edit

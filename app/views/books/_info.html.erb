@@ -1,13 +1,15 @@
 <h1>User info</h1>
-<div>
-  <%= image_tag book.user.get_profile_image(100,100) %>
-  <h3>name<%= @user.name %></h3>
-  <h3>introduction<%= @user.introduction %></h3>
-</div>
-<%= link_to edit_user_path(current_user.id), class: 'btn btn-default' do %>
-  <i class="fa-solid fa-user-gear"></i>
-<% end %>
+  <div>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <h3>name <%= @user.name %></h3>
+    <h3>introduction <%= @user.introduction %></h3>
+  </div>
 
+<% if @user == current_user %>
+  <%= link_to edit_user_path(@user) do %>
+    <i class="fa-solid fa-user-gear"></i>
+   <% end %>
+<% end %>
 
 <h1>New book</h1>
 <%= form_with model: @book do |f| %>
