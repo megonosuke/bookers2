@@ -1,9 +1,4 @@
 class BooksController < ApplicationController
-  def _usernew
-    @user = User.new
-
-  end
-
   def index
     @book = Book.new
     @books = Book.all
@@ -14,9 +9,9 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "You have created book successfully."
-      redirect_to book_path(@book)
+      redirect_to books_path
+      # books.showのリンクに変更する（現状、リンクがわからない）
     else
-      @books = Book.all
       render :index
     end
   end
@@ -25,25 +20,24 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
-  def destroy
-    book = Book.find(params[:id])
-    book.destroy
-    redirect_to books_path
-  end
-
   def edit
     @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
-    if @book.update
+    @book =Book.find(params[:id])
+    if @book.update(book_params)
       flash[:notice] = "You have updated book successfully."
       redirect_to book_path(@book)
     else
-      @books = Book.all
-      render :show
+      render :edit
     end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to books_path
   end
 
   private
