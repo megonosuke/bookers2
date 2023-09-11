@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4" style="background-color: orenge;">
-      <h2>サイドバー</h2>
+      <%= render 'books/info', book: @book, user: current_user %>
     </div>
 
 
@@ -17,7 +17,7 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><!-- user.profile.imageを挿入したいがエラーが出るため一旦置いておく--></td>
+            <td><%= image_tag user.get_profile_image(100,100) %></td>
             <td><%= user.name %></td>
             <td><%= link_to "Show", user_path(user.id) %></td>
           </tr>
