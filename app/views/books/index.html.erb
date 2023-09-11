@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-4" >
+    <div class="col-md-3" >
       <%= render 'info', book: @book, user: current_user %>
     </div>
 
 
-    <div class="col-lg-8">
+    <div class="col-md-8 offset-md-1">
       <h1>Books</h1>
 
       <% if @book.errors.any? %>
@@ -28,7 +28,7 @@
           <% @books.each do |book| %>
           <tr>
             <td>
-              <%= link_to user_path(current_user) do %>
+              <%= link_to user_path(book.user) do %>
                 <%= image_tag book.user.get_profile_image(100,100) %>
               <% end %>
             </td>
