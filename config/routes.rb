@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # post "/users" => "users#index"
   # post "/users/:id" => "users#show"
   # post "/books/:id" => "books#show"
-  get "/homes/about" => "homes#about", as: "about"
+  get "/home/about" => "homes#about", as: "about"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
